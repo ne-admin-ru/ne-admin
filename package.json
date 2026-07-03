@@ -1,0 +1,17 @@
+{
+  "name": "ne-admin",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
+  "dependencies": {
+    "@astrojs/mdx": "^4.3.0",
+    "@astrojs/rss": "^4.0.12",
+    "astro": "^5.11.0"
+  },
+  "devDependencies": {}
+}
