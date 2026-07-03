@@ -1,0 +1,28 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const articles = (await getCollection('articles'))
+  .filter((article) => !article.data.draft)
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+---
+<BaseLayout title="ne-admin: инженерные заметки" description="Разборы сетевых, TLS, DNS и инфраструктурных инцидентов из практики.">
+  <section class="hero">
+    <p class="eyebrow">Инженерные заметки</p>
+    <h1>Сети, TLS, DNS и странные инциденты, разобранные до пакетов.</h1>
+    <p class="lead">Короткие и длинные разборы из практики: что сломалось, как проверялось, где была настоящая причина и что делать в следующий раз.</p>
+  </section>
+
+  <section class="article-list" aria-label="Статьи">
+    {articles.map((article) => (
+      <article class="article-card">
+        <div class="article-meta">
+          <time datetime={article.data.pubDate.toISOString()}>{article.data.pubDate.toLocaleDateString('ru-RU')}</time>
+          <span>{article.data.tags.join(' · ')}</span>
+        </div>
+        <h2><a href={`${import.meta.env.BASE_URL}articles/${article.slug}/`}>{article.data.title}</a></h2>
+        <p>{article.data.description}</p>
+      </article>
+    ))}
+  </section>
+</BaseLayout>
