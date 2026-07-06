@@ -8,11 +8,11 @@ const articles = (await getCollection('articles'))
 const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : `${import.meta.env.BASE_URL}/`;
 const withBase = (path = '') => `${base}${path}`;
 ---
-<BaseLayout title="ne-admin: инженерные заметки" description="Разборы сетевых, TLS, DNS и инфраструктурных инцидентов из практики.">
+<BaseLayout title="NE Admin: заметки инфраструктурщика" description="Практические разборы, гайды и наблюдения про сети, безопасность, почту, Linux, VPN и AI-инструменты.">
   <section class="hero">
-    <p class="eyebrow">Инженерные заметки</p>
-    <h1>Интересные и странные инциденты, которые я встречал.</h1>
-    <p class="lead">Короткие и длинные разборы из практики: что сломалось, как проверялось, где была настоящая причина и что делать в следующий раз.</p>
+    <p class="eyebrow">NE Admin</p>
+    <h1>Заметки инфраструктурщика</h1>
+    <p class="lead">Практические разборы, гайды и наблюдения про сети, безопасность, почту, Linux, VPN и AI-инструменты.</p>
   </section>
 
   <section class="article-list" aria-label="Статьи">
