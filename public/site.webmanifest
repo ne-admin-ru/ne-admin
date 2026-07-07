@@ -1,0 +1,16 @@
+{
+  "name": "NE Admin",
+  "short_name": "NE Admin",
+  "description": "Практические разборы, гайды и наблюдения про сети, безопасность, почту, Linux, VPN и AI-инструменты.",
+  "icons": [
+    {
+      "src": "/ne-admin-icon.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ],
+  "theme_color": "#0f172a",
+  "background_color": "#020617",
+  "display": "standalone"
+}
