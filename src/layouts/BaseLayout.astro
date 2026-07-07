@@ -10,6 +10,7 @@ const { title, description = 'Практические разборы, гайд�
 const canonical = new URL(Astro.url.pathname, Astro.site);
 const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : `${import.meta.env.BASE_URL}/`;
 const withBase = (path = '') => `${base}${path}`;
+const absoluteAsset = (path: string) => new URL(withBase(path), Astro.site);
 ---
 <!doctype html>
 <html lang="ru">
@@ -20,13 +21,24 @@ const withBase = (path = '') => `${base}${path}`;
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
     <link rel="alternate" type="application/rss+xml" title="NE Admin" href={withBase('rss.xml')} />
+    <link rel="icon" type="image/svg+xml" href={withBase('favicon.svg')} />
+    <link rel="manifest" href={withBase('site.webmanifest')} />
+    <meta name="theme-color" content="#0f172a" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={absoluteAsset('ne-admin-logo-horizontal-inverse.svg')} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={absoluteAsset('ne-admin-logo-horizontal-inverse.svg')} />
   </head>
   <body>
     <header class="site-header">
-      <a class="brand" href={base}>NE Admin</a>
+      <a class="brand" href={base} aria-label="NE Admin">
+        <img src={withBase('ne-admin-logo-compact.svg')} alt="NE Admin" width="190" height="55" />
+      </a>
       <nav>
         <a href={base}>Заметки</a>
         <a href={withBase('about/')}>Об авторе</a>
