@@ -39,10 +39,19 @@ a:hover { color: var(--accent); }
 }
 
 .brand {
+  display: inline-flex;
+  align-items: center;
   font-weight: 800;
   font-size: 1.1rem;
   letter-spacing: 0;
   text-decoration: none;
+}
+
+.brand img {
+  display: block;
+  width: 190px;
+  max-width: min(52vw, 190px);
+  height: auto;
 }
 
 nav { display: flex; flex-wrap: wrap; gap: 16px; color: var(--muted); font-size: 0.95rem; }
