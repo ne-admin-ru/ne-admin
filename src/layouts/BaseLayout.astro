@@ -37,7 +37,11 @@ const absoluteAsset = (path: string) => new URL(withBase(path), Astro.site);
   <body>
     <header class="site-header">
       <a class="brand" href={base} aria-label="NE Admin">
-        <img src={withBase('ne-admin-logo-compact.svg')} alt="NE Admin" width="190" height="55" />
+        <img src={withBase('ne-admin-icon.svg')} alt="" width="56" height="56" />
+        <span class="brand-copy">
+          <span class="brand-title">NE Admin</span>
+          <span class="brand-subtitle">заметки инфраструктурщика</span>
+        </span>
       </a>
       <nav>
         <a href={base}>Заметки</a>
